@@ -1,4 +1,7 @@
 #!/bin/bash
+#chkshards.sh - (c) 2016 Christopher Evans 
+# ------------- A script to monitor and update the apache index status text file for StorjShare program 
+#
 
 DATE=$(date '+%b')
 
