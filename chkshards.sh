@@ -1,7 +1,4 @@
 #!/bin/bash
-#chkshards.sh - (c) 2016 Christopher Evans 
-# ------------- A script to monitor and update the apache index status text file for StorjShare program 
-#
 
 DATE=$(date '+%b')
 
@@ -10,6 +7,8 @@ DATE=$(date '+%b')
 date > /var/www/html/status.txt
 
 ls /home/chris/Desktop/data/storj0/farmer.db -altr > /home/chris/Desktop/dir.txt
+ls "/media/chris/TOSHIBA EXT/storj1/farmer.db" -altr >> /home/chris/Desktop/dir.txt
+
 
 if grep "$DATE" /home/chris/Desktop/dir.txt > /dev/null; then
     echo "Operational and open to new shards :-)" >> /var/www/html/status.txt
@@ -24,5 +23,7 @@ echo "Connections " >> /var/www/html/status.txt
 
 netstat -tn | grep -i esta | wc -l >> /var/www/html/status.txt 
 
-du -shc /home/chris/Desktop/data/storj0/* >> /var/www/html/status.txt
+du -shc /home/chris/Desktop/data/storj0/* /media/chris/* >> /var/www/html/status.txt
+
+df -h >> /var/www/html/status.txt
 
