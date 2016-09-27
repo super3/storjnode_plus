@@ -16,7 +16,15 @@ else
     echo "No new shards, as we be full to the brim :-)" >> /var/www/html/status.txt
     echo "" > /home/chris/Desktop/offline.txt
     ps aux | grep "storjshare" > /home/chris/Desktop/offline.txt 
-    cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis"  axiomfinity@netzero.com
+    if pgrep "storjshare" > /dev/null
+       then
+            echo "Storjshare is running." >> /var/www/html/status.txt
+       else
+            echo "Storjshare is not running." >> /var/www/html/status.txt
+            echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
+            cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis"  axiomfinity@netzero.com
+       fi 
+   
 fi
 
 echo "Connections " >> /var/www/html/status.txt
