@@ -24,15 +24,6 @@ else
     ps aux | grep "storjshare" > /home/chris/Desktop/offline.txt    
 fi
 
-if pgrep "storjshare" > /dev/null
-   then
-            echo "Storjshare is running." >> /var/www/html/status.txt
-   else
-            echo "Storjshare is not running." >> /var/www/html/status.txt
-            echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
-            cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis"  axiomfinity@netzero.com
-fi 
-
 echo "Connections " >> /var/www/html/status.txt
 
 netstat -tn | grep -i esta | wc -l >> /var/www/html/status.txt 
@@ -40,4 +31,14 @@ netstat -tn | grep -i esta | wc -l >> /var/www/html/status.txt
 du -shc /home/chris/Desktop/data/storj0/* /media/chris/* >> /var/www/html/status.txt
 
 df -h >> /var/www/html/status.txt
+
+if pgrep "storjshare" > /dev/null
+   then
+            echo "Storjshare is running." >> /var/www/html/status.txt
+   else
+            echo "Storjshare is not running." >> /var/www/html/status.txt
+            echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
+            cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis"  axiomfinity@netzero.com
+            # shutdown -r now
+fi 
 
