@@ -16,7 +16,7 @@ Donations: http://digitalatoll.byethost17.com/
 
 4) get a dynamic dommain name such as at dtdns.net 
 
-5) easiest router option is a Netgear N600 that supports ddos and UPNP else you will be port wording manually 
+5) easiest router option is a Netgear N600 or WNDR4500 that supports ddos and UPNP else you will be port wording manually 
 
 6) use etherape (linux) to monitor the connections 
 
