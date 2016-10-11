@@ -14,12 +14,12 @@ DATE=$(date '+%b')
 date > /var/www/html/status.txt
 
 ls /home/chris/Desktop/data/storj0/farmer.db -altr > /home/chris/Desktop/dir.txt
-ls "/media/chris/TOSHIBA EXT/storj1/farmer.db" -altr >> /home/chris/Desktop/dir.txt
+# ls "/media/chris/TOSHIBA EXT/storj1/farmer.db" -altr >> /home/chris/Desktop/dir.txt
 
 if grep "$DATE" /home/chris/Desktop/dir.txt > /dev/null; then
-    echo "Operational and open to new shards :-)" >> /var/www/html/status.txt
+    echo "Operational and open to new shards." >> /var/www/html/status.txt
 else
-    echo "No new shards, as we be full to the brim :-)" >> /var/www/html/status.txt
+    echo "No new shards." >> /var/www/html/status.txt
     echo "" > /home/chris/Desktop/offline.txt
     ps aux | grep "storjshare" > /home/chris/Desktop/offline.txt    
 fi
