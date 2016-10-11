@@ -32,6 +32,8 @@ du -shc /home/chris/Desktop/data/storj0/* /media/chris/* >> /var/www/html/status
 
 df -h >> /var/www/html/status.txt
 
+uname -a >> /var/www/html/status.txt
+
 if pgrep "storjshare" > /dev/null
    then
             echo "Storjshare is running." >> /var/www/html/status.txt
