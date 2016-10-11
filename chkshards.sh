@@ -39,6 +39,6 @@ if pgrep "storjshare" > /dev/null
             echo "Storjshare is not running." >> /var/www/html/status.txt
             echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
             cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis"  axiomfinity@netzero.com
-            # shutdown -r now
+            shutdown -r now
 fi 
 
