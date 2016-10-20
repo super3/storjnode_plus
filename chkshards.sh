@@ -11,36 +11,46 @@ DATE=$(date '+%b')
 # ./dtdnsup tkp.darktech.org xxxxxxxxxx d
 # ./dtdnsup tawhakisoft.slyip.net xxxxxxxxxx d
 
-date > /var/www/html/status.txt
+date > /home/chris/Desktop/www/status.txt
 
-ls /home/chris/Desktop/data/storj0/farmer.db -altr > /home/chris/Desktop/dir.txt
-# ls "/media/chris/TOSHIBA EXT/storj1/farmer.db" -altr >> /home/chris/Desktop/dir.txt
+ls /home/chris/Desktop/data/storj0/storjshare-20b22f -altr > /home/chris/Desktop/dir.txt
+
+#farmer.db 
 
 if grep "$DATE" /home/chris/Desktop/dir.txt > /dev/null; then
-    echo "Operational and open to new shards." >> /var/www/html/status.txt
+    echo "Operational and open to new shards." >> /home/chris/Desktop/www/status.txt
 else
-    echo "No new shards." >> /var/www/html/status.txt
+    echo "No new shards." >> /home/chris/Desktop/www/status.txt
     echo "" > /home/chris/Desktop/offline.txt
     ps aux | grep "storjshare" > /home/chris/Desktop/offline.txt    
 fi
 
-echo "Connections " >> /var/www/html/status.txt
+echo "Connections " >> /home/chris/Desktop/www/status.txt
 
-netstat -tn | grep -i esta | wc -l >> /var/www/html/status.txt 
+netstat -tn | grep -i esta | wc -l >> /home/chris/Desktop/www/status.txt 
 
-du -shc /home/chris/Desktop/data/storj0/* /media/chris/* >> /var/www/html/status.txt
+# /media/chris/* 
 
-df -h >> /var/www/html/status.txt
+du -shc /home/chris/Desktop/data/storj0/* >> /home/chris/Desktop/www/status.txt
 
-uname -a >> /var/www/html/status.txt
+df -h >> /home/chris/Desktop/www/status.txt
+
+uname -a >> /home/chris/Desktop/www/status.txt
+
+lscpu | grep "U MHz:" >> /home/chris/Desktop/www/status.txt
+lscpu | grep "U max MHz:" >> /home/chris/Desktop/www/status.txt
+lscpu | grep "U min MHz:" >> /home/chris/Desktop/www/status.txt
+
+boinccmd --get_cc_status >> /home/chris/Desktop/www/status.txt
 
 if pgrep "storjshare" > /dev/null
    then
-            echo "Storjshare is running." >> /var/www/html/status.txt
+            echo "Storjshare is running." >> /home/chris/Desktop/www/status.txt
    else
-            echo "Storjshare is not running." >> /var/www/html/status.txt
+            echo "Storjshare is not running." >> /home/chris/Desktop/www/status.txt
             echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
-            cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis and reboot."  axiomfinity@netzero.com
+            cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 statistics analysis and reboot"  aaxiomfinity@gmail.com
+            
             shutdown -r now
 fi 
 
