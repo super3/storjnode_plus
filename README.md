@@ -1,6 +1,6 @@
 # storjnode_plus
 
-Updated for Storjshare 2.0.11 . 
+Updated for Storjshare 2.0.11
 
 Storj.io Node Plus is a collection of bash scripts for running a storjshare repository for my storj scripts 
 and for others to use too. 
