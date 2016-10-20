@@ -13,7 +13,7 @@ DATE=$(date '+%b')
 
 date > /home/chris/Desktop/www/status.txt
 
-# set for each instamnce running 
+# set for each instance running 
 ls /home/chris/Desktop/data/storj0/storjshare-20b22f -altr > /home/chris/Desktop/dir.txt
 
 #farmer.db 
