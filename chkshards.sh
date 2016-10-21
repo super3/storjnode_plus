@@ -9,7 +9,7 @@ DATE=$(date '+%b')
 # ./dtdnsup digitalatoll.flnet.org xxxxxxxxxx d
 # ./dtdnsup bbx.flnet.org xxxxxxxxxx d
 # ./dtdnsup tkp.darktech.org xxxxxxxxxx d
-# ./dtdnsup tawhakisoft.slyip.net xxxxxxxxxx d
+# ./dtdnsup tawhakisoft.slyip.net xxxxxxxxxx d 
 
 date > /home/chris/Desktop/www/status.txt
 
