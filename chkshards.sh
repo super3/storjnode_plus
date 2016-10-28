@@ -45,6 +45,16 @@ lscpu | grep "U min MHz:" >> /home/chris/Desktop/www/status.txt
 boinccmd --get_cc_status >> /home/chris/Desktop/www/status.txt
 boinccmd --get_simple_gui_info | grep "fraction done:" >> /home/chris/Desktop/www/status.txt
 
+cd ~/Downloads
+if [ -c "storjshare-gui.amd64.deb"]
+then
+	echo upgrading storjshare...
+	echo "password" | sudo -S dpkg -i storjshare-gui.amd64.deb
+	echo restarting storjshare... 
+	echo "password" | sudo -S /opt/storjshare/storjshare
+        rm storjshare-gui.amd64.deb   
+fi
+
 if pgrep "storjshare" > /dev/null
    then
             echo "Storjshare is running." >> /home/chris/Desktop/www/status.txt
