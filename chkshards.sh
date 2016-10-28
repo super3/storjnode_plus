@@ -59,6 +59,11 @@ if dig +noall +answer -x 8.8.8.8 | grep --quiet "google-public-dns" ;then
 	echo DNS network okay >> /home/chris/Desktop/www/status.txt
 else
 	echo DNS network not okay >> /home/chris/Desktop/www/status.txt
+      #  if ping 8.8.8.8 | grep "unknown host" ;then
+      #       echo Network hosed! >> /home/chris/Desktop/www/status.txt
+      #  else
+      #       echo Network ping okay >> /home/chris/Desktop/www/status.txt
+      #  fi 
 fi
 
 if pgrep "storjshare" > /dev/null
