@@ -47,13 +47,18 @@ boinccmd --get_cc_status >> /home/chris/Desktop/www/status.txt
 boinccmd --get_simple_gui_info | grep "fraction done:" >> /home/chris/Desktop/www/status.txt
 
 cd ~/Downloads
-if [ -e "storjshare-gui.amd64.deb"]
-then
+if [ -e "storjshare-gui.amd64.deb" ] ;then
 	echo upgrading storjshare...
 	dpkg -i storjshare-gui.amd64.deb
 	echo restarting storjshare... 
 	/opt/storjshare/storjshare
         rm storjshare-gui.amd64.deb   
+fi
+
+if dig +noall +answer -x 8.8.8.8 | grep --quiet "google-public-dns" ;then
+	echo DNS network okay >> /home/chris/Desktop/www/status.txt
+else
+	echo DNS network not okay >> /home/chris/Desktop/www/status.txt
 fi
 
 if pgrep "storjshare" > /dev/null
