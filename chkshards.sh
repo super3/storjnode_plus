@@ -49,9 +49,9 @@ cd ~/Downloads
 if [ -c "storjshare-gui.amd64.deb"]
 then
 	echo upgrading storjshare...
-	echo "password" | sudo -S dpkg -i storjshare-gui.amd64.deb
+	dpkg -i storjshare-gui.amd64.deb
 	echo restarting storjshare... 
-	echo "password" | sudo -S /opt/storjshare/storjshare
+	/opt/storjshare/storjshare
         rm storjshare-gui.amd64.deb   
 fi
 
