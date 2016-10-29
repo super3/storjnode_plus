@@ -46,7 +46,7 @@ lscpu | grep "U min MHz:" >> /home/chris/Desktop/www/status.txt
 boinccmd --get_cc_status >> /home/chris/Desktop/www/status.txt
 boinccmd --get_simple_gui_info | grep "fraction done:" >> /home/chris/Desktop/www/status.txt
 
-cd ~/Downloads
+cd /home/chris/Downloads
 if [ -e "storjshare-gui.amd64.deb" ] ;then
 	echo upgrading storjshare...
 	dpkg -i storjshare-gui.amd64.deb
