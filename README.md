@@ -1,16 +1,18 @@
 # storjnode_plus
 
-Updated for Storjshare 2.0.11
+Updated for Storjshare 2.0.16
 
 Storj.io Node Plus is a collection of bash scripts for running a storjshare repository for my storj scripts 
 and for others to use too. 
 
 License GPLv3 
 
-Donations: http://digitalatoll.byethost17.com/
+Install the script into a crontab with this example :
 
---- Instructions to seting up a storjshare node  -------------------------------------------------------
+*/59 * * * * echo "password" | sudo -S /home/chris/Desktop/chkshards.sh
 
+--- Instructions to seting up a storjshare node
+  
 1) install _64bit_ windows 7/8.1/10 of windows or ubuntu 16.04 lts 
 
 2) setup apache2 
@@ -26,3 +28,11 @@ Donations: http://digitalatoll.byethost17.com/
 7) install and setup storjshare on your couinterwallet public address 
 
 8) install chkshards.sh into your desktop and configure it to fit you paths and et al.
+
+**
+
+Donation link for the cloud computing node are here - > http://digitalatoll.byethost17.com/ 
+
+or at my Cloud Computing Node at http://storj.dtdns.net/
+
+
