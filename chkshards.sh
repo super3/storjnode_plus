@@ -78,7 +78,7 @@ if pgrep "storjshare" > /dev/null
    else
             echo "Storjshare is not running." >> /home/chris/Desktop/www/status.txt
             echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
-            cat /home/chris/Desktop/www/status.txt | mailx -s "Node 1 statistics analysis"  aaxiomfinity@gmail.com
+            cat /home/chris/Desktop/www/status.txt | mailx -s "Node 1 statistics analysis prior to reboot"  aaxiomfinity@gmail.com
 
             cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 reboot"  aaxiomfinity@gmail.com
             
