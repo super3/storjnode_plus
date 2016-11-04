@@ -91,7 +91,10 @@ if cmp -s /home/chris/Desktop/www/statusold.txt /home/chris/Desktop/www/status.t
 
 else
    
-   cat /home/chris/Desktop/www/status.txt | mailx -s "Node 1 statistics analysis"  aaxiomfinity@gmail.com
+   echo " " > /home/chris/Desktop/www/temp.txt
+   diff /home/chris/Desktop/www/status.txt /home/chris/Desktop/www/statusold.txt >> /home/chris/Desktop/www/temp.txt
+
+   cat /home/chris/Desktop/www/temp.txt | mailx -s "Node 1 statistics analysis"  aaxiomfinity@gmail.com
 
 fi
 
