@@ -11,7 +11,12 @@ DATE=$(date '+%b')
 # ./dtdnsup tkp.darktech.org xxxxxxxxxx d
 # ./dtdnsup tawhakisoft.slyip.net xxxxxxxxxx d
 
-date > /home/chris/Desktop/www/status.txt
+cp /home/chris/Desktop/www/status.txt /home/chris/Desktop/www/statusold.txt
+# md5sum /home/chris/Desktop/www/status.txt > /home/chris/Desktop/www/statusmd5.txt
+
+echo "      " > /home/chris/Desktop/www/status.txt
+
+# date >> /home/chris/Desktop/www/status.txt
 
 # set for each instance running 
 
@@ -44,8 +49,8 @@ lscpu | grep "U max MHz:" >> /home/chris/Desktop/www/status.txt
 lscpu | grep "U min MHz:" >> /home/chris/Desktop/www/status.txt
 
 # remove the below two lines of not running BOINC 
-boinccmd --get_cc_status >> /home/chris/Desktop/www/status.txt
-boinccmd --get_simple_gui_info | grep "fraction done:" >> /home/chris/Desktop/www/status.txt
+# boinccmd --get_cc_status >> /home/chris/Desktop/www/status.txt
+# boinccmd --get_simple_gui_info | grep "fraction done:" >> /home/chris/Desktop/www/status.txt
 
 cd /home/chris/Downloads
 if [ -e "storjshare-gui.amd64.deb" ] ;then
@@ -66,6 +71,22 @@ else
       #       echo Network ping okay >> /home/chris/Desktop/www/status.txt
       #  fi 
 fi
+
+
+if cmp -s /home/chris/Desktop/www/statusold.txt /home/chris/Desktop/www/status.txt ; then
+
+   echo "No Status Changes"
+
+else
+    
+    cat /home/chris/Desktop/www/status.txt | mailx -s "Node 1 statistics changed"  aaxiomfinity@gmail.com
+
+fi
+
+# md5sum  > /home/chris/Desktop/www/statusoldmd5.txt
+# md5sum /home/chris/Desktop/www/status.txt > /home/chris/Desktop/www/statusmd5.txt
+# md5sum /home/chris/Desktop/www/statusold.txt > /home/chris/Desktop/www/statusoldmd5.txt
+# md5sum /home/chris/Desktop/www/status.txt > /home/chris/Desktop/www/statusmd5.txt
 
 if pgrep "storjshare" > /dev/null
    then
