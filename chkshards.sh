@@ -87,11 +87,15 @@ fi
 
 if cmp -s /home/chris/Desktop/www/statusold.txt /home/chris/Desktop/www/status.txt ; then
 
-        echo "No Status Changes, so reboot."
+        echo "No Status Changes, restart storjshare "
 
-	# /opt/storjshare/storjshare
+        killall storjshare
 
-        shutdown -r now
+	/opt/storjshare/storjshare
+
+        # echo "so reboot."  
+
+        # shutdown -r now
 
 else
    
