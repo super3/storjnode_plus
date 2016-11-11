@@ -93,6 +93,8 @@ if cmp -s /home/chris/Desktop/www/statusold.txt /home/chris/Desktop/www/status.t
 
 	/opt/storjshare/storjshare
 
+        sleep 5
+
         # echo "so reboot."  
 
         # shutdown -r now
