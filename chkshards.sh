@@ -62,7 +62,18 @@ if [ -e "storjshare-gui.amd64.deb" ] ;then
 fi
 
 if dig +noall +answer -x 8.8.8.8 | grep --quiet "google-public-dns" ;then
+
 	echo DNS network okay >> /home/chris/Desktop/www/status.txt
+
+        if ping -c 3 digitalatoll.flnet.org | grep "0% packet loss";then 
+           echo "Connectivity issues on digitalatoll.flnet.org." >> /home/chris/Desktop/www/status.txt
+        if ping -c 3 storj.dtdns.net | grep "0% packet loss";then 
+           echo "Connectivity issues on storj.dtdns.net" >> /home/chris/Desktop/www/status.txt
+        if ping -c 3 storj.twilightparadox.com | grep "0% packet loss";then 
+           echo "Connectivity issues on storj.twilightparadox.com" >> /home/chris/Desktop/www/status.txt
+        if ping -c 3 storjnode.ddns.net | grep "0% packet loss";then 
+           echo "Connectivity issues on storjnode.ddns.net" >> /home/chris/Desktop/www/status.txt
+
 else
 	echo DNS network not okay >> /home/chris/Desktop/www/status.txt
       #  if ping 8.8.8.8 | grep "unknown host" ;then
@@ -87,13 +98,13 @@ fi
 
 if cmp -s /home/chris/Desktop/www/statusold.txt /home/chris/Desktop/www/status.txt ; then
 
-        echo "No Status Changes, restart storjshare "
+        echo "No Status Changes"
 
-        killall storjshare
+        # killall storjshare
 
-	/opt/storjshare/storjshare
+	# /opt/storjshare/storjshare
 
-        sleep 5
+        # sleep 5
 
         # echo "so reboot."  
 
