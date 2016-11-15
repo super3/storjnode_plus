@@ -20,7 +20,7 @@ echo "      " > /home/chris/Desktop/www/status.txt
 
 # set for each instance running 
 
-ls /media/chris/ -altRr > /home/chris/Desktop/dir.txt
+ls /media/chris/ -altRr | grep ".ldb" > /home/chris/Desktop/dir.txt
 
 #farmer.db 
 
