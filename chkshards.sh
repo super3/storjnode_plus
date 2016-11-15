@@ -20,7 +20,7 @@ echo "      " > /home/chris/Desktop/www/status.txt
 
 # set for each instance running 
 
-ls /home/chris/Desktop/data/storj0/storjshare-c23e26 -altr > /home/chris/Desktop/dir.txt
+ls /media/chris/ -altRr > /home/chris/Desktop/dir.txt
 
 #farmer.db 
 
@@ -38,7 +38,7 @@ netstat -tn | grep -i esta | wc -l >> /home/chris/Desktop/www/status.txt
 
 # /media/chris/* 
 
-du -shc /home/chris/Desktop/data/storj0/* /media/chris/* >> /home/chris/Desktop/www/status.txt
+du -shc /media/chris/* >> /home/chris/Desktop/www/status.txt
 
 df -h >> /home/chris/Desktop/www/status.txt
 
