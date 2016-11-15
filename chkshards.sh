@@ -65,16 +65,29 @@ if dig +noall +answer -x 8.8.8.8 | grep --quiet "google-public-dns" ;then
 
 	echo DNS network okay >> /home/chris/Desktop/www/status.txt
 
-        if ping -c 3 digitalatoll.flnet.org | grep "0% packet loss";then 
-           echo "Connectivity issues on digitalatoll.flnet.org." >> /home/chris/Desktop/www/status.txt
-        if ping -c 3 storj.dtdns.net | grep "0% packet loss";then 
-           echo "Connectivity issues on storj.dtdns.net" >> /home/chris/Desktop/www/status.txt
-        if ping -c 3 storj.twilightparadox.com | grep "0% packet loss";then 
-           echo "Connectivity issues on storj.twilightparadox.com" >> /home/chris/Desktop/www/status.txt
-        if ping -c 3 storjnode.ddns.net | grep "0% packet loss";then 
-           echo "Connectivity issues on storjnode.ddns.net" >> /home/chris/Desktop/www/status.txt
+        if ping -c 3 digitalatoll.flnet.org | grep "0 received" ;then
+                echo "Connectivity issues digitalatoll.flnet.org" >> /home/chris/Desktop/www/status.txt
+           else 
+                echo "digitalatoll.flnet.org online" >> /home/chris/Desktop/www/status.txt
+        fi
+        if ping -c 3 storj.dtdns.net | grep "0 received" ;then
+                echo "Connectivity issues storj.dtdns.net" >> /home/chris/Desktop/www/status.txt
+           else 
+                echo "storj.dtdns.net online" >> /home/chris/Desktop/www/status.txt
+        fi
+        if ping -c 3 storj.twilightparadox.com | grep "0 received" ;then
+                echo "Connectivity issues storj.twilightparadox.com" >> /home/chris/Desktop/www/status.txt
+           else 
+                echo "storj.twilightparadox.com online" >> /home/chris/Desktop/www/status.txt
+        fi
+        if ping -c 3 storjnode.ddns.net | grep "0 received" ;then
+                echo "Connectivity issues storjnode.ddns.net" >> /home/chris/Desktop/www/status.txt
+           else 
+                echo "storjnode.ddns.net online" >> /home/chris/Desktop/www/status.txt
+        fi
 
 else
+
 	echo DNS network not okay >> /home/chris/Desktop/www/status.txt
       #  if ping 8.8.8.8 | grep "unknown host" ;then
       #       echo Network hosed! >> /home/chris/Desktop/www/status.txt
@@ -85,8 +98,10 @@ fi
 
 if pgrep "storjshare" > /dev/null
    then
+
             echo "Storjshare is running." >> /home/chris/Desktop/www/status.txt
    else
+
             echo "Storjshare is not running." >> /home/chris/Desktop/www/status.txt
             echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
             cat /home/chris/Desktop/www/status.txt | mailx -s "Node 1 statistics analysis prior to reboot"  aaxiomfinity@gmail.com
