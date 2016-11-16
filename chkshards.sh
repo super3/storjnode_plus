@@ -40,6 +40,9 @@ echo "Contracts " >> /home/chris/Desktop/www/nodestatus.txt
 
 cat "/home/chris/.config/Storj Share/settings.json" | grep "total" >> /home/chris/Desktop/www/nodestatus.txt
 
+cat "/home/chris/.config/Storj Share/settings.json" | grep "size"  >> /home/chris/Desktop/www/nodestatus.txt
+
+
 # /media/chris/* 
 
 du -shc /media/chris/* >> /home/chris/Desktop/www/nodestatus.txt
