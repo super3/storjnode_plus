@@ -103,6 +103,9 @@ else
       #  fi 
 fi
 
+smartctl -a /dev/sda | grep "self-assessment test result" >> /home/chris/Desktop/www/nodestatus.txt
+smartctl -a /dev/sdb | grep "self-assessment test result" >> /home/chris/Desktop/www/nodestatus.txt
+
 if pgrep "storjshare" > /dev/null
    then
 
