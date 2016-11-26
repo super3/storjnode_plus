@@ -28,8 +28,7 @@ if grep "$DATE" /home/chris/Desktop/dir.txt > /dev/null; then
     echo "Operational and open to new shards." >> /home/chris/Desktop/www/nodestatus.txt
 else
     echo "No new shards." >> /home/chris/Desktop/www/nodestatus.txt
-    echo "" > /home/chris/Desktop/offline.txt
-    ps aux | grep "storjshare" > /home/chris/Desktop/offline.txt    
+    ps aux | grep "storjshare" >> /home/chris/Desktop/www/nodestatus.txt   
 fi
 
 echo "Connections " >> /home/chris/Desktop/www/nodestatus.txt
@@ -112,12 +111,13 @@ if pgrep "storjshare" > /dev/null
             echo "Storjshare is running." >> /home/chris/Desktop/www/nodestatus.txt
    else
 
-            echo "Storjshare is not running." >> /home/chris/Desktop/www/nodestatus.txt
-            echo "Storjshare is not running." >> /home/chris/Desktop/offline.txt
-            cat /home/chris/Desktop/www/nodestatus.txt | mailx -s "Node 1 statistics analysis prior to reboot"  aaxiomfinity@gmail.com
+            smartctl -a /dev/sda >> /home/chris/Desktop/www/nodestatus.txt
+            smartctl -a /dev/sdb >> /home/chris/Desktop/www/nodestatus.txt
 
-            cat /home/chris/Desktop/offline.txt | mailx -s "Node 1 reboot"  aaxiomfinity@gmail.com
-            
+            echo "Storjshare is not running." >> /home/chris/Desktop/www/nodestatus.txt
+
+            cat /home/chris/Desktop/www/nodestatus.txt | mailx -s "Node 1 statistics analysis abd reboot"  aaxiomfinity@gmail.com
+           
             shutdown -r now
 fi 
 
