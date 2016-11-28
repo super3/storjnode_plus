@@ -110,12 +110,14 @@ if pgrep "storjshare" > /dev/null
    then
 
             echo "Storjshare is running." >> /home/chris/Desktop/www/nodestatus.txt
+            echo "Storjshare is running." > /home/chris/Desktop/www/storjshare_status.txt
    else
 
             smartctl -a /dev/sda >> /home/chris/Desktop/www/nodestatus.txt
             smartctl -a /dev/sdb >> /home/chris/Desktop/www/nodestatus.txt
 
             echo "Storjshare is not running." >> /home/chris/Desktop/www/nodestatus.txt
+            echo "Storjshare is not running." > /home/chris/Desktop/www/storjshare_status.txt
 
             cat /home/chris/Desktop/www/nodestatus.txt | mailx -s "Node 1 statistics analysis abd reboot"  aaxiomfinity@gmail.com
            
