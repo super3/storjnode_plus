@@ -27,7 +27,7 @@ Install the script into a crontab with this example :
 
 6) use etherape (linux) to monitor the connections 
 
-7) install and setup storjshare on your couinterwallet public address 
+7) install and setup storjshare on your counterwallet public address 
 
 8) install chkshards.sh into your desktop and configure it to fit you paths and et al.
 
