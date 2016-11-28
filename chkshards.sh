@@ -101,8 +101,9 @@ else
       #       echo Network ping okay >> /home/chris/Desktop/www/nodestatus.txt
       #  fi 
 fi
-
+echo "SMART DATA for sda ">> /home/chris/Desktop/www/nodestatus.txt
 smartctl -a /dev/sda | grep "self-assessment test result" >> /home/chris/Desktop/www/nodestatus.txt
+echo "SMART DATA for sdb ">> /home/chris/Desktop/www/nodestatus.txt
 smartctl -a /dev/sdb | grep "self-assessment test result" >> /home/chris/Desktop/www/nodestatus.txt
 
 if pgrep "storjshare" > /dev/null
